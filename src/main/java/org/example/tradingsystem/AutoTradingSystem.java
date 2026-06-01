@@ -16,6 +16,9 @@ public class AutoTradingSystem {
             stockerBrokerDriver = new KiwerDriver(new KiwerAPI());
         } else if(selectedBroker.equals("2")) {
             stockerBrokerDriver = new NemoDriver(new NemoAPI());
+        } else {
+            System.out.println("잘못 입력하였습니다. 1 또는 2를 입력해주세요");
+            throw new RuntimeException("Invalid stock broker selected");
         }
     }
 

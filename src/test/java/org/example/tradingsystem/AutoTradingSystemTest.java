@@ -9,6 +9,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @ExtendWith(MockitoExtension.class)
 class AutoTradingSystemTest {
@@ -53,5 +54,14 @@ class AutoTradingSystemTest {
         assertThat(autoTradingSystem.stockerBrokerDriver)
                 .isNotNull()
                 .isExactlyInstanceOf(NemoDriver.class);
+    }
+
+    @Test
+    void test_stock_broker_잘못_입력됐을때_throw_exception(){
+        String input = "3";
+        setSystemIn(input);
+        this.autoTradingSystem = new AutoTradingSystem();
+
+        assertThatThrownBy(() -> autoTradingSystem.selectStockBroker()).isInstanceOf(RuntimeException.class);
     }
 }
