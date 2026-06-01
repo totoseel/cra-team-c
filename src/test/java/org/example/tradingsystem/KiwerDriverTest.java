@@ -28,4 +28,15 @@ class KiwerDriverTest {
 
         verify(kiwerAPI, times(1)).buy(stockCode, price, quantity);
     }
+
+    @Test
+    void sellTest() {
+        String stockCode = "1234";
+        int price = 10000;
+        int quantity = 200;
+
+        kiwerDriver.sell(stockCode, price, quantity);
+
+        verify(kiwerAPI, times(1)).sell(stockCode, price, quantity);
+    }
 }

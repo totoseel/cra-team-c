@@ -25,7 +25,7 @@ public class KiwerDriver implements StockerBrokerDriverInterface {
 
     @Override
     public void sell(String code, int price, int count) {
-
+        kiwerAPI.sell(code, price, count);
     }
 
     @Override
