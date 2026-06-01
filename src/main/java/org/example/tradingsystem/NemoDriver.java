@@ -1,14 +1,17 @@
 package org.example.tradingsystem;
 
 public class NemoDriver implements StockerBrokerDriverInterface {
+    NemoAPI nemoAPI = new NemoAPI();
+
     @Override
     public String selectStockBroker() {
         return "";
     }
 
     @Override
-    public String login(String id, String pass) {
-        return "";
+    public boolean login(String id, String pass) {
+        nemoAPI.certification(id, pass);
+        return true;
     }
 
     @Override

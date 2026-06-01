@@ -1,14 +1,17 @@
 package org.example.tradingsystem;
 
 public class KiwerDriver implements StockerBrokerDriverInterface {
+    KiwerAPI kiwerAPI = new KiwerAPI();
+
     @Override
     public String selectStockBroker() {
         return "";
     }
 
     @Override
-    public String login(String id, String pass) {
-        return "";
+    public boolean login(String id, String pass) {
+        kiwerAPI.login(id, pass);
+        return true;
     }
 
     @Override
