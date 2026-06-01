@@ -11,7 +11,7 @@ public class Calc {
     }
 
     public int getZegop(int a, int b){
-        return 0;
+        return a * b;
     }
 
     public int getMinus(int a, int b){
