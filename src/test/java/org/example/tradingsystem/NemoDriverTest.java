@@ -9,7 +9,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class NemoDriverTest {
@@ -39,5 +39,26 @@ class NemoDriverTest {
 
         boolean result = nemoDriver.login(id, passwd);
         assertThat(result).isFalse();
+
+    @Test
+    void buyTest() {
+        String stockCode = "1234";
+        int price = 10000;
+        int quantity = 200;
+
+        nemoDriver.buy(stockCode, price, quantity);
+
+        verify(nemoAPI, times(1)).purchasingStock(stockCode, price, quantity);
+    }
+
+    @Test
+    void sellTest() {
+        String stockCode = "1234";
+        int price = 10000;
+        int quantity = 200;
+
+        nemoDriver.sell(stockCode, price, quantity);
+
+        verify(nemoAPI, times(1)).sellingStock(stockCode, price, quantity);
     }
 }

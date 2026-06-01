@@ -1,7 +1,7 @@
 package org.example.tradingsystem;
 
 public class KiwerDriver implements StockerBrokerDriverInterface {
-    KiwerAPI kiwerAPI;
+    private final KiwerAPI kiwerAPI;
 
     public KiwerDriver(KiwerAPI kiwerAPI) {
         this.kiwerAPI = kiwerAPI;
@@ -24,12 +24,12 @@ public class KiwerDriver implements StockerBrokerDriverInterface {
 
     @Override
     public void buy(String code, int price, int count) {
-
+        kiwerAPI.buy(code, price, count);
     }
 
     @Override
     public void sell(String code, int price, int count) {
-
+        kiwerAPI.sell(code, price, count);
     }
 
     @Override
