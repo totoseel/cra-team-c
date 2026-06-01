@@ -28,4 +28,15 @@ class NemoDriverTest {
 
         verify(nemoAPI, times(1)).purchasingStock(stockCode, price, quantity);
     }
+
+    @Test
+    void sellTest() {
+        String stockCode = "1234";
+        int price = 10000;
+        int quantity = 200;
+
+        nemoDriver.sell(stockCode, price, quantity);
+
+        verify(nemoAPI, times(1)).sellingStock(stockCode, price, quantity);
+    }
 }

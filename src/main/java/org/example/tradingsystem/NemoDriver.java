@@ -25,7 +25,7 @@ public class NemoDriver implements StockerBrokerDriverInterface {
 
     @Override
     public void sell(String code, int price, int count) {
-
+        nemoAPI.sellingStock(code, price, count);
     }
 
     @Override
