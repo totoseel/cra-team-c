@@ -1,6 +1,7 @@
 package org.example;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -12,6 +13,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CalcTest {
 
     Calc calc;
+
+    @BeforeEach
+    void setUp() {
+        calc = new Calc();
+    }
 
     @Test
     void test_두_정수의_합() {
@@ -44,7 +50,6 @@ class CalcTest {
     }
     @Test
     void getZegopTest() {
-        int result = calc.getZegop(3, 6);
-        assertThat(18).isEqualTo(result);
+        assertThat(18).isEqualTo(calc.getZegop(3, 6));
     }
 }
