@@ -15,6 +15,6 @@ public class Calc {
     }
 
     public int getMinus(int a, int b){
-        return 0;
+        return a - b;
     }
 }
