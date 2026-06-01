@@ -1,7 +1,6 @@
 package org.example.tradingsystem;
 
 public class KiwerDriver implements StockerBrokerDriverInterface {
-
     private final KiwerAPI kiwerAPI;
 
     public KiwerDriver(KiwerAPI kiwerAPI) {
@@ -14,8 +13,13 @@ public class KiwerDriver implements StockerBrokerDriverInterface {
     }
 
     @Override
-    public String login(String id, String pass) {
-        return "";
+    public boolean login(String id, String pass) {
+        try {
+            kiwerAPI.login(id, pass);
+            return true;
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
     }
 
     @Override

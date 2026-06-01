@@ -1,7 +1,6 @@
 package org.example.tradingsystem;
 
 public class NemoDriver implements StockerBrokerDriverInterface {
-
     private final NemoAPI nemoAPI;
 
     public NemoDriver(NemoAPI nemoAPI) {
@@ -14,8 +13,13 @@ public class NemoDriver implements StockerBrokerDriverInterface {
     }
 
     @Override
-    public String login(String id, String pass) {
-        return "";
+    public boolean login(String id, String pass) {
+        try {
+            nemoAPI.certification(id, pass);
+            return true;
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
     }
 
     @Override
