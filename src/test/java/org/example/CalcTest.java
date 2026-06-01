@@ -15,3 +15,4 @@ class CalcTest {
                 .isEqualTo(8);
     }
 }
+
