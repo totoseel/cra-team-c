@@ -6,8 +6,26 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@ExtendWith(MockitoExtension.class)
 class CalcTest {
+    private final Calc calc = new Calc();
+
+    @Test
+    void getGopReturnsProduct() {
+        assertEquals(12, calc.getGop(3, 4));
+    }
+
+    @Test
+    void getGopReturnsZeroWhenAnyOperandIsZero() {
+        assertEquals(0, calc.getGop(0, 5));
+        assertEquals(0, calc.getGop(5, 0));
+    }
+
+    @Test
+    void getGopReturnsNegativeWhenOnlyOneOperandIsNegative() {
+        assertEquals(-12, calc.getGop(-3, 4));
+        assertEquals(-12, calc.getGop(3, -4));
+    }
+  
     @Test
     void testGetMinus() {
         Calc calc = new Calc();
@@ -15,4 +33,3 @@ class CalcTest {
                 .isEqualTo(8);
     }
 }
-

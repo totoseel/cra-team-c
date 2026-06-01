@@ -7,7 +7,7 @@ public class Calc {
     }
 
     public int getGop(int a, int b){
-        return 0;
+        return a * b;
     }
 
     public int getZegop(int a, int b){
