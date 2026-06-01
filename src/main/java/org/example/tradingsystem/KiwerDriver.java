@@ -34,6 +34,6 @@ public class KiwerDriver implements StockerBrokerDriverInterface {
 
     @Override
     public int getPrice(String code) {
-        return 0;
+        return kiwerAPI.currentPrice(code);
     }
 }
