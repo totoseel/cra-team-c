@@ -8,11 +8,6 @@ public class NemoDriver implements StockerBrokerDriverInterface {
     }
 
     @Override
-    public String selectStockBroker() {
-        return "";
-    }
-
-    @Override
     public boolean login(String id, String pass) {
         try {
             nemoAPI.certification(id, pass);
