@@ -3,7 +3,7 @@ package org.example;
 
 public class Calc {
     public int getSum(int a, int b){
-        return 0;
+        return a+b;
     }
 
     public int getGop(int a, int b){
