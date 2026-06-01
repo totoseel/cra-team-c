@@ -1,6 +1,13 @@
 package org.example.tradingsystem;
 
 public class NemoDriver implements StockerBrokerDriverInterface {
+
+    private final NemoAPI nemoAPI;
+
+    public NemoDriver(NemoAPI nemoAPI) {
+        this.nemoAPI = nemoAPI;
+    }
+
     @Override
     public String selectStockBroker() {
         return "";
@@ -13,7 +20,7 @@ public class NemoDriver implements StockerBrokerDriverInterface {
 
     @Override
     public void buy(String code, int price, int count) {
-
+        nemoAPI.purchasingStock(code, price, count);
     }
 
     @Override
