@@ -50,6 +50,6 @@ class CalcTest {
     }
     @Test
     void getZegopTest() {
-        assertThat(18).isEqualTo(calc.getZegop(3, 6));
+        assertThat(36).isEqualTo(calc.getZegop(6));
     }
 }
