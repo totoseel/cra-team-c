@@ -39,6 +39,7 @@ class NemoDriverTest {
 
         boolean result = nemoDriver.login(id, passwd);
         assertThat(result).isFalse();
+    }
 
     @Test
     void buyTest() {

@@ -1,6 +1,24 @@
 package org.example.tradingsystem;
 
+import java.util.Scanner;
+
 public class AutoTradingSystem {
+    StockerBrokerDriverInterface stockerBrokerDriver;
+
+    public void selectStockBroker() {
+        System.out.println("증권사를 선택하세요");
+        System.out.print("Kiwer : 1 입력 / Nemo : 2 입력 -> ");
+        Scanner scanner = new Scanner(System.in);
+        String selectedBroker = scanner.next();
+        System.out.println(selectedBroker);
+
+        if(selectedBroker.equals("1")){
+            stockerBrokerDriver = new KiwerDriver(new KiwerAPI());
+        } else if(selectedBroker.equals("2")) {
+            stockerBrokerDriver = new NemoDriver(new NemoAPI());
+        }
+    }
+
     public void buyNiceTiming(int code, int amount){
 
     }
