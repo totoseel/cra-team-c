@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(MockitoExtension.class)
 class CalcTest {
@@ -16,4 +16,11 @@ class CalcTest {
         assertThat(calc.getSum(-1, 5)).isEqualTo(4);
         assertThat(calc.getSum(0, 0)).isEqualTo(0);
     }
+    @Test
+    void testGetMinus() {
+        Calc calc = new Calc();
+        assertThat(calc.getMinus(10, 2))
+                .isEqualTo(8);
+    }
 }
+
