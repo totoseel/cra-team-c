@@ -29,6 +29,7 @@ public class NemoDriver implements StockerBrokerDriverInterface {
 
     @Override
     public int getPrice(String code) {
-        return 0;
+        int MIN_THRESHOLD = 100;
+        return nemoAPI.getMarketPrice(code, MIN_THRESHOLD);
     }
 }

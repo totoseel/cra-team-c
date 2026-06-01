@@ -1,6 +1,5 @@
 package org.example.tradingsystem;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -8,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
@@ -61,5 +61,25 @@ class NemoDriverTest {
         nemoDriver.sell(stockCode, price, quantity);
 
         verify(nemoAPI, times(1)).sellingStock(stockCode, price, quantity);
+    }
+
+    @Test
+    void getPrice() {
+        when(nemoAPI.getMarketPrice(eq("123"), anyInt())).thenReturn(5300);
+        when(nemoAPI.getMarketPrice(eq("456"), anyInt())).thenReturn(7000);
+
+        assertThat(nemoDriver.getPrice("123"))
+                .isEqualTo(5300);
+        assertThat(nemoDriver.getPrice("456"))
+                .isEqualTo(7000);
+    }
+
+    @Test
+    void failGetPrice() {
+        when(nemoAPI.getMarketPrice(anyString(), anyInt()))
+                .thenThrow(RuntimeException.class);
+
+        assertThatThrownBy(() -> nemoDriver.getPrice("123"))
+                .isInstanceOf(RuntimeException.class);
     }
 }
