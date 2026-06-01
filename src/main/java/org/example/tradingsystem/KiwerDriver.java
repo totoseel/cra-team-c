@@ -8,11 +8,6 @@ public class KiwerDriver implements StockerBrokerDriverInterface {
     }
 
     @Override
-    public String selectStockBroker() {
-        return "";
-    }
-
-    @Override
     public boolean login(String id, String pass) {
         try {
             kiwerAPI.login(id, pass);
